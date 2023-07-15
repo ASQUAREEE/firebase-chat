@@ -34,8 +34,9 @@
 
 <style>
 .nav-container {
-  background-color: #333;
-  padding: 10px;
+  /* background-color: #333; */
+  background-image: linear-gradient(#461353, #2a0b32);
+  padding: 15px;
 }
 
 .nav-content {

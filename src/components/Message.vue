@@ -6,7 +6,7 @@
           <Avatar class="avatar" :src="photoUrl" />
           <span class="message-name">{{ name }}</span>
         </div>
-        <v-card class="text-container">
+        <v-card  :class="{'text-containerS': sender, 'text-container': !sender}">
           <slot />
         </v-card>
       </div>
@@ -43,8 +43,10 @@ export default {
 .message-sender {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-right: 10px;
+  align-items: flex-start;
+  /* align-items: flex-end; */
+  /* margin-right: 10px; */
+  margin-left: 10px;
 }
 
 .message-receiver {
@@ -83,6 +85,23 @@ export default {
   background-color: #e2f2fd;
   color: #000000;
 }
+
+.text-containerS{
+
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #179282;
+  color: #000000;
+
+
+}
+
+
+
 
 .text-receiver .text-container {
   background-color: #f5f5f5;

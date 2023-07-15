@@ -68,6 +68,9 @@
   height: 100%;
   background: url(@/assets/chatImg.jpg) no-repeat center;
     background-size: cover;
+
+  margin-top: -25px;  
+ 
 }
 
   
@@ -85,7 +88,8 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    background-color: #f5f5f5;
+    /* background-color: #9a1d3d; */
+    background-image: linear-gradient(#58319b, #2c184e);
     border-top: 1px solid #ddd;
     
   }
@@ -136,7 +140,7 @@
   }
   
   .message .text {
-    background-color: #f5f5f5;
+    background-color: #643636;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
