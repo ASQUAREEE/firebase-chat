@@ -83,10 +83,18 @@
         }
       }
   
+      const handleResize = () => {
+        if (window.innerWidth >= 768) {
+          showPicker.value = false
+        }
+      }
+  
       document.addEventListener('click', closeEmojiPicker)
+      window.addEventListener('resize', handleResize)
   
       onUnmounted(() => {
         document.removeEventListener('click', closeEmojiPicker)
+        window.removeEventListener('resize', handleResize)
       })
   
       const onSelectEmoji = (selectedEmoji) => {
@@ -109,7 +117,7 @@
     }
   }
   </script>
- 
+  
   
   <style scoped>
   .container {
@@ -145,7 +153,6 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
-    width: 800px;
   }
   
   .send-button {
@@ -190,7 +197,7 @@
   .emoji-picker-container {
     position: absolute;
     bottom: 20px;
-    left: 100px;
+    left: 0;
     right: 0;
     z-index: 1;
   }
@@ -227,5 +234,21 @@
   }
   
   /* Add additional custom styles as needed */
+  
+  /* Media queries for responsive design */
+  
+  @media (max-width: 767px) {
+    .message-input {
+      width: 100%;
+    }
+    
+    .send-button {
+      margin-left: 10px;
+    }
+    
+    .emoji-picker-container {
+      bottom: 60px;
+    }
+  }
   </style>
   
