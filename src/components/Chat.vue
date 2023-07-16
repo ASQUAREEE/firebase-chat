@@ -22,7 +22,7 @@
               placeholder="Type a message..."
               required
             />
-            <button class="emoji-button" @click="showEmojiPicker"></button>
+            <v-btn class="emoji-button" @click="showEmojiPicker"></v-btn>
             <button type="submit" class="send-button">
               <SendIcon />
             </button>
@@ -154,7 +154,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #007bff;
     border: none;
     border-radius: 50%;
@@ -189,7 +189,7 @@
   
   .emoji-picker-container {
     position: absolute;
-    top: 420px;
+    bottom: 20px;
     left: 100px;
     right: 0;
     z-index: 1;
