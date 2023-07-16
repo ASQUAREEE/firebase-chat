@@ -58,7 +58,8 @@ export function useChat() {
       userName: displayName,
       userId: uid,
       userPhotoURL: photoURL,
-      text: filter.clean(text),
+      // text: filter.clean(text),
+      text: text, 
       createdAt: serverTimestamp()
     });
   };

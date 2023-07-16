@@ -22,9 +22,7 @@
               placeholder="Type a message..."
               required
             />
-            <button class="emoji-button" @click="showEmojiPicker">
-              
-            </button>
+            <button class="emoji-button" @click="showEmojiPicker"></button>
             <button type="submit" class="send-button">
               <SendIcon />
             </button>
@@ -38,7 +36,7 @@
   </template>
   
   <script>
-  import { ref, watch, nextTick } from 'vue'
+  import { ref, watch, nextTick, onUnmounted } from 'vue'
   import { useAuth, useChat } from '@/firebase'
   
   import SendIcon from './SendIcon.vue'
@@ -76,16 +74,42 @@
         showPicker.value = !showPicker.value
       }
   
+      const closeEmojiPicker = (event) => {
+        if (
+          !event.target.closest('.emoji-button') &&
+          !event.target.closest('.emoji-picker-container')
+        ) {
+          showPicker.value = false
+        }
+      }
+  
+      document.addEventListener('click', closeEmojiPicker)
+  
+      onUnmounted(() => {
+        document.removeEventListener('click', closeEmojiPicker)
+      })
+  
       const onSelectEmoji = (selectedEmoji) => {
         // Handle the selected emoji
         console.log(selectedEmoji)
         message.value += selectedEmoji.i
       }
   
-      return { user, isLogin, messages, bottom, message, send, showPicker, showEmojiPicker, onSelectEmoji }
+      return {
+        user,
+        isLogin,
+        messages,
+        bottom,
+        message,
+        send,
+        showPicker,
+        showEmojiPicker,
+        onSelectEmoji
+      }
     }
   }
   </script>
+ 
   
   <style scoped>
   .container {
